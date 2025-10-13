@@ -1,38 +1,38 @@
 # 🚀 ETHEREUM PREDICTION MODEL (Python + Docker)
 
-## Обзор проекта
+## Project Overview
 
-Этот проект представляет собой простую предсказательную модель, предназначенную для прогнозирования цены Ethereum (ETH) в долларах США на краткосрочный горизонт (7 дней).
+This project is a simple predictive model designed to forecast the price of **Ethereum (ETH) in US Dollars** over a short-term horizon (7 days).
 
-Модель реализована на Python и использует библиотеку `Prophet` для анализа временных рядов. Проект полностью контейнеризирован с помощью Docker для обеспечения быстрого и единообразного развертывания в любой среде.
-
----
-
-## ⚙️ Технологический стек
-
-* **Язык:** Python 3.10+
-* **Основная библиотека ML:** **Prophet** (разработка Meta) — аддитивная регрессионная модель для прогнозирования временных рядов.
-* **Сбор данных:** `yfinance` для получения исторических цен ETH/USD.
-* **Развертывание:** **Docker** — для изоляции среды и мгновенного запуска.
+The model is implemented in **Python** and utilizes the **`Prophet`** library for time series analysis. The entire project is **containerized with Docker** to ensure fast and uniform deployment in any environment.
 
 ---
 
-## 🧠 Как работает модель
+## ⚙️ Technology Stack
 
-Модель Prophet декомпозирует исторические данные (используются данные за последние 2 года) на ключевые компоненты для прогноза:
-
-1.  **Тренд (Trend):** Долгосрочное направление движения цены.
-2.  **Сезонность (Seasonality):** Регулярные циклические паттерны (ежедневные, еженедельные и годовые циклы).
-3.  **Неопределенность:** На выходе мы получаем не только точечное предсказание (`yhat`), но и **доверительный интервал (95%)** для оценки потенциального риска.
+* **Language:** Python 3.10+
+* **Core ML Library:** **Prophet** (developed by Meta) — an additive regression model for time series forecasting.
+* **Data Collection:** `yfinance` to fetch historical ETH/USD prices.
+* **Deployment:** **Docker** — for environment isolation and instant startup.
 
 ---
 
-## 🛠️ Инструкция по запуску (Docker)
+## 🧠 Model Mechanics
 
-Для запуска модели вам потребуется установленный Docker.
+The Prophet model decomposes historical data (using data from the past 2 years) into key components for the forecast:
 
-### 1. Клонирование репозитория
+1.  **Trend:** The long-term direction of the price movement.
+2.  **Seasonality:** Regular cyclical patterns (daily, weekly, and yearly cycles).
+3.  **Uncertainty:** The output provides not only a point prediction (`yhat`) but also a **95% confidence interval** for risk assessment.
+
+---
+
+## 🛠️ Startup Instructions (Docker)
+
+You will need Docker installed to run this model.
+
+### 1. Clone the Repository
 
 ```bash
-git clone (https://github.com/0631155020/eth-week-prediction.git)
+git clone https://github.com/0631155020/eth-week-prediction.git
 cd eth-prediction
