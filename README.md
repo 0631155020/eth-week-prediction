@@ -36,3 +36,8 @@ You will need Docker installed to run this model.
 ```bash
 git clone https://github.com/0631155020/eth-week-prediction.git
 cd eth-prediction
+```
+to run docker image named eth-predictor-model
+
+```bash
+docker run eth-predictor-model:latest
