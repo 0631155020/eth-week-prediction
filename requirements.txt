@@ -3,3 +3,7 @@ yfinance
 prophet
 numpy
 pystan
+Django
+psycopg2-binary
+gunicorn
+dj-database-url

@@ -68,25 +68,3 @@ def predict_price(df, days=7):
     upper = final_prediction['yhat_upper'].iloc[0]
 
     return price, lower, upper
-
-# -----------------
-# 3. Вывод
-# -----------------
-if __name__ == '__main__':
-    
-    df_eth = fetch_data()
-    
-    if not df_eth.empty:
-        # Прогноз на 7 дней
-        days_to_predict = 7
-        predicted_price, lower_bound, upper_bound = predict_price(df_eth, days=days_to_predict)
-
-        if predicted_price:
-            print("\n" + "="*50)
-            print(f"ПРОГНОЗ ЦЕНЫ ЭФИРА (ETH/USD) ЧЕРЕЗ {days_to_predict} ДНЕЙ:")
-            print(f"Дата прогноза: {(date.today() + timedelta(days=days_to_predict)).strftime('%Y-%m-%d')}")
-            print(f"Прогнозируемая цена (yhat): ${predicted_price:.2f}")
-            print(f"Доверительный интервал (95%): от ${lower_bound:.2f} до ${upper_bound:.2f}")
-            print("="*50)
-        else:
-            print("Не удалось получить финальный прогноз.")

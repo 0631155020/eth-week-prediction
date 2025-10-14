@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETH Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ethereum Price Prediction</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="days">Days to predict:</label>
+            <input type="number" id="days" name="days" value="7" min="1" max="365">
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if predicted_price %}
+            <div class="result">
+                <h2>Prediction for {{ prediction_date }}</h2>
+                <p>Predicted Price: <strong>${{ predicted_price|floatformat:2 }}</strong></p>
+                <p>Confidence Interval: ${{ lower_bound|floatformat:2 }} - ${{ upper_bound|floatformat:2 }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
