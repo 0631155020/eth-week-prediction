@@ -36,3 +36,23 @@ You will need Docker installed to run this model.
 ```bash
 git clone https://github.com/0631155020/eth-week-prediction.git
 cd eth-prediction
+```
+to run docker image named eth-predictor-model
+
+```bash
+docker run eth-predictor-model:latest
+```
+
+Запуск веб-приложения
+
+```Bash
+
+python manage.py runserver
+```
+Теперь откройте в браузере http://127.0.0.1:8000/, чтобы увидеть ваш прогноз, извлеченный из PostgreSQL.
+
+to activate virtual enviroment
+
+```bash
+source .venv/Scripts/activate
+```
