@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз цены Ethereum</title>
+</head>
+<body>
+    <h1>Прогноз цены Ethereum (ETH/USD)</h1>
+
+    {% if forecast %}
+        <p>Последний прогноз сделан: {{ forecast.created_at|date:"d M Y H:i" }}</p>
+        <h2>Прогноз на {{ forecast.forecast_date|date:"d M Y" }} (через 7 дней):</h2>
+
+        <p>Прогнозируемая цена (yhat): <strong>${{ forecast.forecast_price }}</strong></p>
+        <p>Доверительный интервал (95%):</p>
+        <ul>
+            <li>Нижняя граница: <strong>${{ forecast.lower_bound }}</strong></li>
+            <li>Верхняя граница: <strong>${{ forecast.upper_bound }}</strong></li>
+        </ul>
+        
+    {% else %}
+        <p>Прогноз пока недоступен. Запустите фоновую задачу прогнозирования.</p>
+    {% endif %}
+</body>
+</html>
