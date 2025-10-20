@@ -12,8 +12,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копирование основного скрипта
-COPY predict.py .
+# Копирование проекта
+COPY . /app
 
 # Определение команды, которая будет запускаться при старте контейнера
-CMD ["python", "predict.py"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

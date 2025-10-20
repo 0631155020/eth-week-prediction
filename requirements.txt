@@ -2,3 +2,6 @@ pandas
 yfinance
 prophet
 numpy
+django
+psycopg2-binary
+dj-database-url

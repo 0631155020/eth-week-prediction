@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-v0k6(s%r-$3$((v2x5j376px*$pv)j)43q(f)(b=_tr3rr6zew"
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-v0k6(s%r-$3$((v2x5j376px*$pv)j)43q(f)(b=_tr3rr6zew')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', '0') == '1'
 
 ALLOWED_HOSTS = []
 
@@ -74,14 +76,9 @@ WSGI_APPLICATION = "eth_forecast_project.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eth-prediction',       
-        'USER': 'postgres',  
-        'PASSWORD': 'postgres',   
-        'HOST': 'localhost',         # IP сервера БД
-        'PORT': '5432',              # Порт PostgreSQL
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
 
@@ -125,4 +122,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-

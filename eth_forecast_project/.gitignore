@@ -17,3 +17,5 @@ local_settings.py
 # Игнорировать файлы ML/Prophet
 # ------------------------------------
 cmdstan/
+
+.env
